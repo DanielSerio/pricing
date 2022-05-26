@@ -2,7 +2,7 @@
   "name": "pricing",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://danielserio.github.io/pricing/",
+  "homepage": "https://danielserio.github.io/pricing",
   "dependencies": {
     "@mantine/core": "^4.2.6",
     "@mantine/hooks": "^4.2.6",
