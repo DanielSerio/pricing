@@ -68,6 +68,7 @@ export default function PricingCardList() {
             title={'Frontend/Full-Stack Contract Development'}
             price={42}
             rateType='hourly'
+            emphasis
           >
             <Title order={3} mt={`0 !important`} mb={`0 !important`}>
               Familiar Tools

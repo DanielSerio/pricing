@@ -36,11 +36,23 @@ const useDesktopMenuStyles = createStyles((t: MantineTheme) => ({
   },
 }));
 
+const useMenuClassnames = createStyles((t: MantineTheme) => ({
+  root: {},
+  itemLabel: {
+    display: 'flex',
+    width: '100%',
+    height: '100%',
+    lineHeight: 2,
+  },
+}));
+
 const useMobileMenuStyles = createStyles((t: MantineTheme) => ({
   link: {
     textDecoration: 'none',
     fontWeight: 700,
     color: 'dimgrey',
+    display: 'block',
+    width: '100%',
 
     '&:hover': {
       color: 'inherit',
@@ -57,6 +69,7 @@ const useMobileMenuStyles = createStyles((t: MantineTheme) => ({
 
 function DesktopMenu({ ...props }: DesktopMenuProps) {
   const { classes } = useDesktopMenuStyles();
+
   return (
     <Group {...props}>
       <NavLink to={'/'} className={classes.link}>
@@ -75,9 +88,11 @@ function DesktopMenu({ ...props }: DesktopMenuProps) {
 function MobileMenu({ ...props }: MobileMenuProps) {
   const { classes } = useMobileMenuStyles();
   const [menuOpened, { open, close }] = useDisclosure(false);
+  const { classes: menuClasses } = useMenuClassnames();
   return (
     <Box {...props}>
       <Menu
+        classNames={menuClasses}
         opened={menuOpened}
         onOpen={open}
         onClose={close}

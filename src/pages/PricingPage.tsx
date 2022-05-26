@@ -1,5 +1,6 @@
 import { List, Text, Title } from '@mantine/core';
 import React from 'react';
+import ContactButton from '../components/ContactButton';
 import Page from '../components/layout/Page';
 import PageSection from '../components/layout/PageSection';
 import TypographyContainer from '../components/layout/TypographyContainer';
@@ -23,6 +24,10 @@ export default function PricingPage() {
           </List>
         </TypographyContainer>
         <PricingCardList />
+        <Text mt={48} component='p' size={'sm'}>
+          For any further questions, please:
+        </Text>
+        <ContactButton textDetails='Here For More Information' />
       </PageSection>
     </Page>
   );

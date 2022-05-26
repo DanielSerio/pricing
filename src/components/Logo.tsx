@@ -6,6 +6,8 @@ import TypographyContainer from './layout/TypographyContainer';
 const useLogoStyles = createStyles((t: MantineTheme) => ({
   root: {
     maxHeight: 72,
+    display: 'flex',
+    flexDirection: 'column',
     '& h1, & p': {
       margin: 0,
       lineHeight: 1,
@@ -18,6 +20,17 @@ const useLogoStyles = createStyles((t: MantineTheme) => ({
       textDecoration: 'none',
     },
   },
+  small: {
+    background: t.colors[t.colorScheme === 'dark' ? 'gray' : 'dark'][5],
+    color: t.colorScheme === 'dark' ? t.black : t.white,
+    lineHeight: 2,
+    minHeight: 20,
+    fontSize: 10,
+    textAlign: 'center',
+    display: 'grid',
+    placeItems: 'center',
+    borderRadius: t.radius.xs,
+  },
 }));
 
 export default function Logo() {
@@ -25,8 +38,10 @@ export default function Logo() {
   return (
     <Box component='section' className={classes.root}>
       <Link to={'/'}>
-        <Title order={1}>Dan Serio</Title>
-        <Text sx={{ fontSize: 10 }} component='p'>
+        <Title order={1} sx={{ fontSize: 36 }}>
+          Dan Serio
+        </Title>
+        <Text className={classes.small} component='p'>
           Contract Software Development
         </Text>
       </Link>

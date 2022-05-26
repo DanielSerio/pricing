@@ -19,13 +19,14 @@ function createPricingCardStyles(t: MantineTheme): MantineStylesObject {
     dividerSection: {
       padding: 0,
       margin: 0,
-      background: 'green',
     },
     contentSection: {
       paddingLeft: t.spacing.sm,
       paddingRight: t.spacing.sm,
       paddingTop: t.spacing.xs,
       paddingBottom: t.spacing.xs,
+      color: 'inherit',
+      '& *': { color: 'inherit' },
     },
   };
 }
@@ -37,6 +38,7 @@ export default function PricingCard({
   title,
   rateType,
   price,
+  emphasis,
   ...rest
 }: PricingCardProps) {
   const { classes } = usePricingCardStyles();
@@ -48,7 +50,21 @@ export default function PricingCard({
 
   return (
     <Card
-      sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+      sx={(t: MantineTheme) => ({
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        background: emphasis
+          ? t.colorScheme === 'light'
+            ? t.colors.dark[7]
+            : t.colors.gray[2]
+          : 'inherit',
+        color: emphasis
+          ? t.colorScheme === 'light'
+            ? t.white
+            : t.black
+          : 'inherit',
+      })}
       withBorder
       p={0}
       shadow={'md'}
@@ -61,6 +77,11 @@ export default function PricingCard({
             sx={(t: MantineTheme) => ({
               marginTop: `0 !important`,
               fontSize: `${t.fontSizes.lg}px !important`,
+              color: emphasis
+                ? t.colorScheme === 'light'
+                  ? t.white
+                  : t.black
+                : 'inherit',
             })}
             order={1}
           >
@@ -69,7 +90,17 @@ export default function PricingCard({
         </TypographyContainer>
       </Card.Section>
       <DividerSection />
-      <Card.Section className={classes.contentSection} sx={{ flex: 1 }}>
+      <Card.Section
+        className={classes.contentSection}
+        sx={(t: MantineTheme) => ({
+          flex: 1,
+          color: emphasis
+            ? t.colorScheme === 'light'
+              ? t.white
+              : t.black
+            : 'inherit',
+        })}
+      >
         <TypographyContainer<'span'> component={'span'} py={'md'}>
           {children}
         </TypographyContainer>

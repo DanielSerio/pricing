@@ -8,4 +8,5 @@ export interface PricingCardItem {
   title: string;
   rateType?: RateType;
   price: number;
+  emphasis?: boolean;
 }

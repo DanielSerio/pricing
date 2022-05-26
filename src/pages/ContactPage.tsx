@@ -8,7 +8,11 @@ export default function ContactPage() {
   return (
     <Page>
       <PageSection>
-        <TypographyContainer<'article'> component={'article'} mx={'auto'}>
+        <TypographyContainer<'article'>
+          component={'article'}
+          mx={'auto'}
+          sx={{ minHeight: '320px' }}
+        >
           <Title order={1} align={'center'}>
             Contact Me
           </Title>

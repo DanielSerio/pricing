@@ -1,5 +1,6 @@
 import { Text, Title } from '@mantine/core';
 import React from 'react';
+import ContactButton from '../components/ContactButton';
 import Page from '../components/layout/Page';
 import PageSection from '../components/layout/PageSection';
 import TypographyContainer from '../components/layout/TypographyContainer';
@@ -19,6 +20,7 @@ export default function AboutPage() {
             ability to create everything from simple static sites to full blown
             Full-Stack web applications.
           </Text>
+          <ContactButton textDetails='Here For More Information' />
         </TypographyContainer>
       </PageSection>
     </Page>
