@@ -16,10 +16,6 @@ export type PricingCardProps = CardProps<'li'> & PricingCardItem;
 
 function createPricingCardStyles(t: MantineTheme): MantineStylesObject {
   return {
-    root: {
-      background: 'red',
-      padding: 0,
-    },
     dividerSection: {
       padding: 0,
       margin: 0,
@@ -51,16 +47,29 @@ export default function PricingCard({
   );
 
   return (
-    <Card withBorder p={0} shadow={'md'} component='li' {...rest}>
+    <Card
+      sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}
+      withBorder
+      p={0}
+      shadow={'md'}
+      component='li'
+      {...rest}
+    >
       <Card.Section className={classes.contentSection}>
         <TypographyContainer pt={'sm'} component={'span'}>
-          <Title sx={{ marginTop: `0 !important` }} order={2}>
+          <Title
+            sx={(t: MantineTheme) => ({
+              marginTop: `0 !important`,
+              fontSize: `${t.fontSizes.lg}px !important`,
+            })}
+            order={1}
+          >
             {title}
           </Title>
         </TypographyContainer>
       </Card.Section>
       <DividerSection />
-      <Card.Section className={classes.contentSection}>
+      <Card.Section className={classes.contentSection} sx={{ flex: 1 }}>
         <TypographyContainer<'span'> component={'span'} py={'md'}>
           {children}
         </TypographyContainer>
@@ -75,7 +84,11 @@ export default function PricingCard({
         className={classes.contentSection}
       >
         <Box>
-          {rateType === 'hourly' && <Text>Per Hour</Text>}
+          {rateType === 'hourly' && (
+            <Text weight={700} color={'dimmed'}>
+              Per Hour
+            </Text>
+          )}
           {Boolean(!rateType || rateType === 'total') && (
             <Text weight={700} color={'dimmed'}>
               Total Cost
