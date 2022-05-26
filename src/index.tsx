@@ -3,13 +3,47 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {
+  ColorScheme,
+  ColorSchemeProvider,
+  MantineProvider,
+} from '@mantine/core';
+import { useLocalStorage } from '@mantine/hooks';
+import Theme from './Theme';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
+const AppWrapper = () => {
+  const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
+    key: 'mantine-color-scheme',
+    defaultValue: 'light',
+    getInitialValueInEffect: true,
+  });
+
+  const toggleColorScheme = (value?: ColorScheme) =>
+    setColorScheme(value || (colorScheme === 'dark' ? 'light' : 'dark'));
+
+  return (
+    <ColorSchemeProvider
+      toggleColorScheme={toggleColorScheme}
+      colorScheme={colorScheme}
+    >
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{ colorScheme, ...Theme }}
+      >
+        <App />
+      </MantineProvider>
+    </ColorSchemeProvider>
+  );
+};
+
 root.render(
   <React.StrictMode>
-    <App />
+    <AppWrapper />
   </React.StrictMode>
 );
 
@@ -18,8 +52,6 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-//TODO: SETUP:
-// Implement ColorSchemeProvider & MantineProvider
 //TODO: Component: Page
 //TODO: Component: Header
 //TODO: Component: Footer
