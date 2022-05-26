@@ -3,6 +3,7 @@ import React from 'react';
 import Page from '../components/layout/Page';
 import PageSection from '../components/layout/PageSection';
 import TypographyContainer from '../components/layout/TypographyContainer';
+import PricingCard from '../components/PricingCard';
 
 export default function PricingPage() {
   return (
@@ -26,6 +27,9 @@ export default function PricingPage() {
             <List.Item>Three</List.Item>
           </List>
         </TypographyContainer>
+        <PricingCard title={'First Pricing Card'} price={300}>
+          <Text>Some Texts</Text>
+        </PricingCard>
       </PageSection>
     </Page>
   );
