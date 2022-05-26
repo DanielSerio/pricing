@@ -30,7 +30,7 @@ export default function TypographyContainer<T extends 'article' | 'span'>({
 }: TypographyContainerProps<T>) {
   const { classes } = useTypographyContainerStyles();
   return (
-    <TypographyStylesProvider>
+    <TypographyStylesProvider mx={'auto'}>
       <Box mx={'auto'} sx={{ maxWidth: 550 }} component={component} {...rest}>
         {children}
       </Box>

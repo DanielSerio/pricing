@@ -1,10 +1,26 @@
-import { Box, Grid, GridProps, List, Text, Title } from '@mantine/core';
+import {
+  Box,
+  createStyles,
+  Grid,
+  GridProps,
+  List,
+  MantineTheme,
+  Text,
+  Title,
+} from '@mantine/core';
 import React from 'react';
 import PricingCard from './PricingCard';
 
 export interface PricingCardListProps extends GridProps {}
-
+const useCardListStyles = createStyles((t: MantineTheme) => ({
+  root: {
+    '& li': {
+      listStyle: 'square',
+    },
+  },
+}));
 export default function PricingCardList() {
+  const { classes } = useCardListStyles();
   return (
     <Box component={'ul'} mx={'auto'} my={'xl'} p={0}>
       <Grid columns={12} align={'stretch'}>
@@ -13,7 +29,7 @@ export default function PricingCardList() {
             <Title order={3} mt={`0 !important`} mb={`0 !important`}>
               Features
             </Title>
-            <List>
+            <List size={'sm'} type='unordered' className={classes.root}>
               <List.Item>Maximum 3 pages</List.Item>
               <List.Item>Maximum 1 form</List.Item>
               <List.Item>7 Day Delivery</List.Item>
@@ -25,7 +41,7 @@ export default function PricingCardList() {
             <Title order={3} mt={`0 !important`} mb={`0 !important`}>
               Features
             </Title>
-            <List>
+            <List size={'sm'} type='unordered' className={classes.root}>
               <List.Item>Maximum 5 pages</List.Item>
               <List.Item>Maximum 2 forms</List.Item>
               <List.Item>10 Days Delivery</List.Item>
@@ -38,7 +54,7 @@ export default function PricingCardList() {
             <Title order={3} mt={`0 !important`} mb={`0 !important`}>
               Features
             </Title>
-            <List>
+            <List size={'sm'} type='unordered' className={classes.root}>
               <List.Item>Maximum 7 pages</List.Item>
               <List.Item>Maximum 3 forms</List.Item>
               <List.Item>14 Days Delivery</List.Item>
@@ -56,7 +72,7 @@ export default function PricingCardList() {
             <Title order={3} mt={`0 !important`} mb={`0 !important`}>
               Familiar Tools
             </Title>
-            <List size={'sm'}>
+            <List size={'sm'} type='unordered' className={classes.root}>
               <List.Item>Typescript/Javascript</List.Item>
               <List.Item>SCSS/CSS</List.Item>
               <List.Item>React</List.Item>

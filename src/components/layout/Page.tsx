@@ -16,13 +16,17 @@ function createPageStyles(t: MantineTheme): MantineStylesObject {
     root: {
       minHeight: '100vh',
       position: 'relative',
-      display: 'grid',
     },
     body: {
       height: '100%',
     },
     main: {
       padding: 0,
+      alignSelf: 'flex-start',
+      justifyContent: 'flex-start',
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: '100%',
     },
   };
 }

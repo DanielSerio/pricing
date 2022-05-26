@@ -20,7 +20,7 @@ export default function PageHeader() {
   const { classes } = useHeaderStyles();
 
   return (
-    <Box component='header'>
+    <Box component='header' sx={{ maxHeight: 72 }}>
       <Header px={'md'} height={72} className={classes.root}>
         <Box>
           <Logo />
