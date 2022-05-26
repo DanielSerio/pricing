@@ -7,6 +7,7 @@ import {
 import React from 'react';
 import { MantineStylesObject } from '../../types';
 import ThemeToggleTab from '../ThemeToggleTab';
+import PageHeader from './PageHeader';
 
 export interface PageProps extends Partial<AppShellProps> {}
 
@@ -31,7 +32,7 @@ const usePageStyles = createStyles(createPageStyles);
 export default function Page({ children, ...rest }: PageProps) {
   const { classes } = usePageStyles();
   return (
-    <AppShell classNames={classes} {...rest}>
+    <AppShell header={<PageHeader />} classNames={classes} {...rest}>
       <ThemeToggleTab />
       {children}
     </AppShell>
