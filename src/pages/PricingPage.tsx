@@ -4,12 +4,13 @@ import Page from '../components/layout/Page';
 import PageSection from '../components/layout/PageSection';
 import TypographyContainer from '../components/layout/TypographyContainer';
 import PricingCard from '../components/PricingCard';
+import PricingCardList from '../components/PricingCardList';
 
 export default function PricingPage() {
   return (
     <Page>
       <PageSection>
-        <TypographyContainer>
+        <TypographyContainer<'article'> component={'article'}>
           <Title order={1}>Pricing</Title>
           <Text component='p'>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero quis
@@ -27,9 +28,7 @@ export default function PricingPage() {
             <List.Item>Three</List.Item>
           </List>
         </TypographyContainer>
-        <PricingCard title={'First Pricing Card'} price={300}>
-          <Text>Some Texts</Text>
-        </PricingCard>
+        <PricingCardList />
       </PageSection>
     </Page>
   );

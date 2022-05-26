@@ -53,7 +53,7 @@ export default function PricingCard({
   return (
     <Card withBorder p={0} shadow={'md'} component='li' {...rest}>
       <Card.Section className={classes.contentSection}>
-        <TypographyContainer pt={'sm'}>
+        <TypographyContainer pt={'sm'} component={'span'}>
           <Title sx={{ marginTop: `0 !important` }} order={2}>
             {title}
           </Title>
@@ -61,7 +61,9 @@ export default function PricingCard({
       </Card.Section>
       <DividerSection />
       <Card.Section className={classes.contentSection}>
-        <TypographyContainer py={'md'}>{children}</TypographyContainer>
+        <TypographyContainer<'span'> component={'span'} py={'md'}>
+          {children}
+        </TypographyContainer>
       </Card.Section>
       <DividerSection />
       <Card.Section
