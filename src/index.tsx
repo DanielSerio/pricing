@@ -57,7 +57,6 @@ reportWebVitals();
 
 //TODO: Component: Header
 //TODO: Component: Footer
-//TODO: Component: ActionIcon (for theme toggle)
 //TODO: Component: Logo
 //TODO: Page: Pricing/Index
 //TODO: Page: About
