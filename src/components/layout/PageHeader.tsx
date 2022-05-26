@@ -1,6 +1,7 @@
 import { Box, createStyles, Header, MantineTheme } from '@mantine/core';
 import React from 'react';
 import { MantineStylesObject } from '../../types';
+import HeaderNavigation from '../HeaderNavigation';
 import Logo from '../Logo';
 
 function createHeaderStyles(t: MantineTheme): MantineStylesObject {
@@ -24,7 +25,9 @@ export default function PageHeader() {
         <Box>
           <Logo />
         </Box>
-        <Box></Box>
+        <Box>
+          <HeaderNavigation />
+        </Box>
       </Header>
     </Box>
   );
