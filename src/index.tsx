@@ -10,6 +10,7 @@ import {
 } from '@mantine/core';
 import { useLocalStorage } from '@mantine/hooks';
 import Theme from './Theme';
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -43,7 +44,9 @@ const AppWrapper = () => {
 
 root.render(
   <React.StrictMode>
-    <AppWrapper />
+    <BrowserRouter>
+      <AppWrapper />
+    </BrowserRouter>
   </React.StrictMode>
 );
 
@@ -52,7 +55,6 @@ root.render(
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
 
-//TODO: Component: Page
 //TODO: Component: Header
 //TODO: Component: Footer
 //TODO: Component: ActionIcon (for theme toggle)
