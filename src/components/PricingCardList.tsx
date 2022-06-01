@@ -66,7 +66,7 @@ export default function PricingCardList() {
         <Grid.Col span={12} xs={6} md={6} offsetMd={3}>
           <PricingCard
             title={'Frontend/Full-Stack Contract Development'}
-            price={42}
+            price={55}
             rateType='hourly'
             emphasis
           >
